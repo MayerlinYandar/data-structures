@@ -12,6 +12,7 @@ package unity0;
 public class Stack {
     private int[] data; 
     private int top;
+    
     public void add (int d){
         data[top]=d;
         top++;

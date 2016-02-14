@@ -41,4 +41,21 @@ public class Test {
         System.out.print("Current values:");
         q.print();
     }
+     public static void TestingList(){
+             List l=new List();
+      
+       for(int i=0;i<5;i++){
+           l.add(i+2, i);
+       }
+        System.out.println("+++++++++++lista++++++++++++++++++");
+       System.out.println("+++++++vector original+++++++++++++");
+       l.print();
+       l.add(10, 1);
+       
+        System.out.println("+++++++vector removido+++++++++++++");
+       l.print();
+       l.Remove(2);
+        System.out.println("+++++++vector removido+++++++++++++");
+       l.print();
+    }
 }
