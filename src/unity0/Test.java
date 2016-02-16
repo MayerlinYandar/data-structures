@@ -13,6 +13,7 @@ public class Test {
     public static void main(String [] args){
         TestingStacks();
         TestingQueues();
+        TestingList();
     }
     
     public static void TestingStacks(){
