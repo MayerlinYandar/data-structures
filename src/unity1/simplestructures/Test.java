@@ -23,6 +23,8 @@ public class Test {
         System.out.println("Total Nodes:" +c);
         l.printFirstElement();
         l.printLastElement();
+        l.removefirstelement();
+        l.removelastelement();
     }
     
 }
