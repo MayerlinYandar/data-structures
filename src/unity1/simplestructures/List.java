@@ -66,8 +66,15 @@ public class List {
         }
         
     }
-    public void removelastelement(){
+    public void removelastelement(){   
         
+        Node aux=header;
+        Node p=null;
+        while(aux.Next!=null){
+            p=aux;
+            aux=aux.Next;                                 
+        }
+        p.Next=null;               
     }
 
     public int count() {
