@@ -58,23 +58,25 @@ public class List {
         }
         return aux.data;
     }
-    public void removefirstelement(){
-        if(header==null){
+
+    public void removefirstelement() {
+        if (header == null) {
             return;
-        }else{
-            header=header.Next;
+        } else {
+            header = header.Next;
         }
-        
+
     }
-    public void removelastelement(){   
-        
-        Node aux=header;
-        Node p=null;
-        while(aux.Next!=null){
-            p=aux;
-            aux=aux.Next;                                 
+
+    public void removelastelement() {
+
+        Node aux = header;
+        Node p = null;
+        while (aux.Next != null) {
+            p = aux;
+            aux = aux.Next;
         }
-        p.Next=null;               
+        p.Next = null;
     }
 
     public int count() {
@@ -108,5 +110,24 @@ public class List {
             }
             System.out.println("The last value is:" + aux.data);
         }
+    }
+
+    public void duplicate() {
+        if (header == null) {
+            return;
+        }
+        Node last = header,aux=header;
+        while (last.Next != null) {
+            last = last.Next;
+        }
+        int c = count();
+        for(int i=0; i<c; i++){
+            last.Next=new Node(aux.data);
+            aux=aux.Next;
+            last=last.Next;
+        }
+    }
+    public void duplicateMirror(){
+        
     }
 }

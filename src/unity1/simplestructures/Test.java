@@ -17,6 +17,10 @@ public class Test {
         l.add(5);
         l.add(10);
         l.add(15);
+        l.add(20);
+        l.add(25);
+        l.add(30);
+        
         System.out.print("initial values:");
         l.print();        
         int c= l.count();
@@ -28,6 +32,13 @@ public class Test {
         l.print();
         System.out.println("Remove last element");        
         l.removelastelement();
+        l.print();
+        System.out.println("Duplicating...");
+        l.duplicate();
+        System.out.println("Vaulues after duplication:");
+        l.print();
+        System.out.println("Mirroring Duplicate...");
+        l.duplicateMirror();
         l.print();
     }
     
