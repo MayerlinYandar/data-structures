@@ -116,18 +116,34 @@ public class List {
         if (header == null) {
             return;
         }
-        Node last = header,aux=header;
+        Node last = header, aux = header;
         while (last.Next != null) {
             last = last.Next;
         }
         int c = count();
-        for(int i=0; i<c; i++){
-            last.Next=new Node(aux.data);
-            aux=aux.Next;
-            last=last.Next;
+        for (int i = 0; i < c; i++) {
+            last.Next = new Node(aux.data);
+            aux = aux.Next;
+            last = last.Next;
         }
     }
-    public void duplicateMirror(){
-        
+
+    public void duplicateMirror() {
+        if (header == null) {
+            return;
+           }
+        int cont=0;
+        Node aux = header, last = header;
+        while (last.Next != null) {
+            last=last.Next;
+            cont++;
+            
+        }
+        for(int i=0; i < cont; i++){
+            Node n = new Node (aux.data);
+            n.Next= last.Next;
+            last.Next=n;
+            aux=aux.Next;
+        }
     }
 }
