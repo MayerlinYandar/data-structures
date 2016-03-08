@@ -7,7 +7,7 @@ package unity1.simplestructures;
 
 /**
  *
- * @author AULA1
+ * @author Mayerlin Yandar
  */
 public class Test {
     public static void main(String[] args){
@@ -25,21 +25,30 @@ public class Test {
         l.print();        
         int c= l.count();
         System.out.println("Total Nodes:" +c);
-        l.printFirstElement();
-        l.printLastElement();
-        System.out.println("Remove First element");
-        l.removefirstelement();
-        l.print();
-        System.out.println("Remove last element");        
-        l.removelastelement();
-        l.print();
-        System.out.println("Duplicating...");
-        l.duplicate();
-        System.out.println("Vaulues after duplication:");
-        l.print();
-        System.out.println("Mirroring Duplicate...");
-        l.duplicateMirror();
-        l.print();
+//        l.printFirstElement();
+//        l.printLastElement();
+//        System.out.println("Remove First element");
+//        l.removefirstelement();
+//        l.print();
+//        System.out.println("Remove last element");        
+//        l.removelastelement();
+//        l.print();
+//        System.out.println("Duplicating...");
+//        l.duplicate();
+//        System.out.println("Vaulues after duplication:");
+//        l.print();
+//        System.out.println("Mirroring Duplicate...");
+//        l.duplicateMirror();
+//        l.print();
+//          System.out.println("Insert Zeros");
+//          l.insertZeros();
+//          l.print();
+        System.out.println("Remove Middle");
+//          l.RemoveMiddle();
+//          l.print();
+        System.out.println("Count Odds");
+          l.countOdds();
+          l.print();
     }
     
 }

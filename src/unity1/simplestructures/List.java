@@ -7,7 +7,7 @@ package unity1.simplestructures;
 
 /**
  *
- * @author AULA1
+ * @author Mayerlin Yandar
  */
 public class List {
 
@@ -131,19 +131,58 @@ public class List {
     public void duplicateMirror() {
         if (header == null) {
             return;
-           }
-        int cont=0;
+        }
+        int cont = 0;
         Node aux = header, last = header;
         while (last.Next != null) {
-            last=last.Next;
+            last = last.Next;
             cont++;
-            
+
         }
-        for(int i=0; i < cont; i++){
-            Node n = new Node (aux.data);
-            n.Next= last.Next;
-            last.Next=n;
-            aux=aux.Next;
+        for (int i = 0; i < cont; i++) {
+            Node n = new Node(aux.data);
+            n.Next = last.Next;
+            last.Next = n;
+            aux = aux.Next;
         }
     }
+
+    public void insertZeros() {
+        Node aux = header;
+        int c = count();
+        while (aux.Next != null) {
+            for (int i = 1; i < c; i++) {
+                Node n = new Node(0);
+                n.Next = aux.Next;
+                aux.Next = n;
+                aux = n.Next;
+            }
+        }
+    }
+
+    public void RemoveMiddle() {
+
+        Node aux = header;
+        Node p = header;
+        int c = count();
+        for (int i = 0; i < c / 2; i++) {
+            p = aux;
+            aux = aux.Next;
+        }
+        p.Next = aux.Next;
+
+    }
+
+    public int countOdds() {
+        Node aux = header;
+        int a = 0;
+        while (aux.Next != null) {
+            if (aux.data % 2 == 1) {
+                a++;
+            }
+            aux = aux.Next;
+        }
+        return a; 
+    }
+
 }
