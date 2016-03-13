@@ -146,7 +146,54 @@ public class List {
             aux = aux.Next;
         }
     }
+    public void removeIntercaled(){
+       Node aux= header,p=header;
+        int c=count();
+        for(int i=0;i<c;i++){
+            if(i%2==1){
+                p.Next=aux.Next;
+            }
+            p=aux;
+            aux=aux.Next;
+        }
+    }
+    public void DuplicateIntercaled(){
+        Node aux= header,p=header;
+        int c=count();
+        while (aux.Next != null){
+            Node n=new Node(aux.data);
+            n.Next=aux.Next;
+            aux.Next=n;
+            aux=n.Next;
+        }
+    }
 
+    public void Invert(){
+        Node aux= header,head2=null;
+        while(header!=null){
+            aux=header;
+            header=header.Next;
+            aux.Next=head2.Next;
+            head2.Next=aux;
+        }
+        header=head2;
+    }
+    public void RemoveRecurrents(){
+        Node p =header, aux=header, back=header;
+        while(aux.Next!=null){
+            p=header;
+            while(p!=aux){
+                if(p.data==aux.data){
+                    back.Next=aux.Next;
+                    back=aux;
+                }
+                p=p.Next;
+            }
+            back=aux;
+            aux=aux.Next;
+        }
+        }
+    
     public void insertZeros() {
         Node aux = header;
         int c = count();
@@ -183,6 +230,5 @@ public class List {
             aux = aux.Next;
         }
         return a; 
-    }
-
+}
 }
