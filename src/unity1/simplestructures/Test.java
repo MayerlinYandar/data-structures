@@ -10,9 +10,9 @@ package unity1.simplestructures;
  * @author Mayerlin Yandar
  */
 public class Test {
-    public static void main(String[] args){
-        
-        
+
+    public static void main(String[] args) {
+
         List l = new List();
         l.add(5);
         l.add(10);
@@ -20,11 +20,11 @@ public class Test {
         l.add(20);
         l.add(25);
         l.add(30);
-        
+
         System.out.print("initial values:");
-        l.print();        
-        int c= l.count();
-        System.out.println("Total Nodes:" +c);
+        l.print();
+        int c = l.count();
+        System.out.println("Total Nodes:" + c);
 //        l.printFirstElement();
 //        l.printLastElement();
 //        System.out.println("Remove First element");
@@ -40,15 +40,27 @@ public class Test {
 //        System.out.println("Mirroring Duplicate...");
 //        l.duplicateMirror();
 //        l.print();
-//          System.out.println("Insert Zeros");
-//          l.insertZeros();
-//          l.print();
-        System.out.println("Remove Middle");
-//          l.RemoveMiddle();
-//          l.print();
+//        System.out.println("Removing Intercalated...");
+//        l.removeIntercaled();
+//        l.print();
+//        System.out.println("Duplicating intercalated...");
+//        l.DuplicateIntercaled();
+//        l.print();
+//        System.out.println("Inverting...");
+//        l.Invert();
+//        l.print();
+//        System.out.println("Removing Recurrents...");
+//        l.RemoveRecurrents();
+//        l.print();
+//        System.out.println("Insert Zeros");
+//        l.insertZeros();
+//        l.print();
+//        System.out.println("Remove Middle");
+//        l.RemoveMiddle();
+//        l.print();
         System.out.println("Count Odds");
-          l.countOdds();
-          l.print();
+        l.countOdds();
+        l.print();
     }
-    
+
 }

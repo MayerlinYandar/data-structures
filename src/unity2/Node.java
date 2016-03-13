@@ -2,7 +2,7 @@ package unity2;
 
 /**
  *
- * @author MiPc
+ * @author Mayerelin_Yandar
  */
 public class Node {
     protected int data;

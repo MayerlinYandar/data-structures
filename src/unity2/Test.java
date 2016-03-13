@@ -2,7 +2,7 @@ package unity2;
 
 /**
  *
- * @author MiPc
+ * @author Mayerlin_Yandar
  */
 public class Test {
     public static void main(String[] args){

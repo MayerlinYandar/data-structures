@@ -7,7 +7,7 @@ package unity1.simplestructures;
 
 /**
  *
- * @author AULA1
+ * @author Mayerlin_Yandar
  */
 public class Node {
     protected int data;
