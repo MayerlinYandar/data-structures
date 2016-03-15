@@ -1,4 +1,4 @@
-package unity2;
+package unity2.doblestructures;
 
 /**
  *
@@ -17,6 +17,12 @@ public class Test {
         
         System.out.print("initial values:");
         l.print();  
+        l.removelastelement();
+        l.print();
+        l.removefirstelement();
+        l.print();
+        l.Invert();
+        l.print();
     }    
 }
     

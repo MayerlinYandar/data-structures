@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package unity2;
+package unity2.doblestructures;
 
 /**
  *
@@ -61,5 +61,33 @@ public class List {
         }
     
 }
+    public void removelastelement() {
+
+        Node aux = header;
+        Node p = null;
+        while (aux.Next != null) {
+            p = aux;
+            aux = aux.Next;
+        }
+        p.Next = null;
+    }
+    public void removefirstelement() {
+        if (header == null) {
+            return;
+        } else {
+            header = header.Next;
+        }
+
+    }
+    public void Invert(){
+        Node aux= header,head2=null;
+        while(header!=null){
+            aux=header;
+            header=header.Next;
+            aux.Next=head2.Next;
+            head2.Next=aux;
+        }
+        header=head2;
     
+}
 }
