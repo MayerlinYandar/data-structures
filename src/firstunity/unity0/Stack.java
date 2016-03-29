@@ -3,40 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package unity0;
+package firstunity.unity0;
 
 /**
  *
  * @author Mayerlin_Yandar
  */
-
-public class Queue {
+public class Stack {
     private int[] data; 
     private int top;
-    
-    public Queue(){
-        data = new int[100];
-        top = 0;
-    }
     
     public void add (int d){
         data[top]=d;
         top++;
     }
     public int remove(){
-        int d = data[0];
-        for(int i=0; i<top-1; i++){
-            data[i]=data[i+1];
-        }
         top--;
-        return d;
+        return data [top];
     }
-     public void print(){
+    public void print(){
         for (int i=0; i<top; i++){
             System.out.print(" "+data [i]);
         }
         System.out.println();
     }
-     
+    public Stack(){
+        data = new int[100];
+        top = 0;
+    }
 }
-

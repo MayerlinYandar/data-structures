@@ -1,4 +1,4 @@
-package unity2.doblestructures;
+package firstunity.unity2.doblestructures;
 
 /**
  *
