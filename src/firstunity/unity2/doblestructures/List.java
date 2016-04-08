@@ -39,6 +39,16 @@ public class List {
         System.out.println();
 
     }
+    public int count (){
+        
+        Node aux= header;
+        int counter =0;
+        while(aux != null){
+            counter++;
+            aux = aux.Next;
+        }
+        return counter;
+    } 
     public void Reverse(){
         if (header==null)return;
         Node aux = header;
@@ -89,5 +99,62 @@ public class List {
         }
         header=head2;
     
+}
+    public void Duplicate (){
+    
+    if (header==null) return;
+    
+    Node aux=header,last=header;
+    int c = count();
+    
+    while(last.Next!=null){
+        last=last.Next;
+        
+    }
+    
+    for(int i=0; i<c; i++){
+        
+        Node n= new Node(aux.data);
+        
+        n.Back=last;
+        last.Next=n;
+        n.Next=null;
+        
+        aux=aux.Next;
+        last=last.Next;
+        
+}
+        
+}
+
+public void DuplicateMirror(){
+    
+    if (header==null) return;
+    
+    Node aux=header,last=header;
+   
+    
+    while(last.Next!=null){
+        last=last.Next;
+       
+       
+        
+    }
+    aux=last;
+    
+    
+    while(aux!=null){
+        
+        Node n= new Node(aux.data);
+        
+        n.Back=last;
+        last.Next=n;
+        
+        
+        last=last.Next;
+        aux= aux.Back;
+        
+        
+    }
 }
 }
