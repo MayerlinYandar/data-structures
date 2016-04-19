@@ -23,9 +23,9 @@ public class Test {
         t.printPath(v);
         
         if(t.isLeaf(v)){
-            System.out.println(""+v+ "is a leaf");
+            System.out.println(" "+v+ "is a leaf");
         }else{
-            System.out.println(""+v+ "doesn't a leaf");
+            System.out.println(" "+v+ "doesn't a leaf");
         }
     }
     
