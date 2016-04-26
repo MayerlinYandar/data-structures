@@ -102,4 +102,25 @@ public class Tree {
                 }
             }
         }
+            public int Count(){
+
+           int cont=0;
+           Node aux=root;
+           Stack <Node> s = new Stack <Node>();
+           while(aux!=null){
+               s.push(aux);
+               aux=aux.left;
+           }
+            while(!s.empty()){
+               aux=s.pop();
+               cont++;
+               aux=aux.right;
+
+               while(aux!=null){
+                   s.push(aux);
+                   aux=aux.left;
+               }
+           }
+            return cont;
+       }
 }
