@@ -123,4 +123,26 @@ public class Tree {
            }
             return cont;
        }
+                public void Printleafs(){
+
+           Node aux = root;
+           Stack <Node> s = new Stack <Node>();
+           while(aux!=null){
+               s.push(aux);
+               aux=aux.left;
+           }
+            while(!s.empty()){
+               aux=s.pop();
+               aux=aux.right;
+
+               if(aux.left==null&&aux.right==null){
+                   System.out.println(""+aux.data);
+               }
+
+               while(aux!=null){
+                   s.push(aux);
+                   aux=aux.left;
+               }
+           }
+       }
 }
