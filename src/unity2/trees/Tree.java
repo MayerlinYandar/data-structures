@@ -5,8 +5,11 @@
  */
 package unity2.trees;
 
+import java.awt.Graphics;
 import java.util.Stack;
 import java.util.Vector;
+import javax.swing.JFrame;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 /**
  *
@@ -171,23 +174,131 @@ public class Tree {
         }
         return aux.data;
     }
-    public void recursivePrint(){
-           recursivePrint(root);
-           System.out.println();
-       }
-       private void recursivePrint(Node r){
-           if (r==null) return;
-           recursivePrint(r.left);
-           System.out.println(" " +r.data);
-           recursivePrint(r.right);
 
-       }
-       public int recursiveCount(){
-           return recursiveCount(root);
-       }
-       private int recursiveCount(Node r){
-           if(r==null)return 0;
-           return recursiveCount(r.left) + recursiveCount(r.right)+1;
+    public void recursivePrint() {
+        recursivePrint(root);
+        System.out.println();
+    }
 
-       }   
+    private void recursivePrint(Node r) {
+        if (r == null) {
+            return;
+        }
+        recursivePrint(r.left);
+        System.out.println(" " + r.data);
+        recursivePrint(r.right);
+
+    }
+
+    public int recursiveCount() {
+        return recursiveCount(root);
+    }
+
+    private int recursiveCount(Node r) {
+        if (r == null) {
+            return 0;
+        }
+        return recursiveCount(r.left) + recursiveCount(r.right) + 1;
+
+    }
+
+    public void PreOrderPrint() {
+
+        PreOrderPrint(root);
+        System.out.println();
+
+    }
+
+    private void PreOrderPrint(Node r) {
+
+        if (r == null) {
+            return;
+        }
+
+        System.out.println("" + r.data);
+        PreOrderPrint(r.left);
+        PreOrderPrint(r.right);
+    }
+
+    public void inOrderPrint() {
+
+        inOrderPrint(root);
+        System.out.println();
+
+    }
+
+    private void inOrderPrint(Node r) {
+
+        if (r == null) {
+            return;
+        }
+
+        inOrderPrint(r.left);
+        System.out.println("" + r.data);
+        inOrderPrint(r.right);
+    }
+
+    public void PostOrderPrint() {
+
+        PostOrderPrint(root);
+        System.out.println();
+
+    }
+
+    private void PostOrderPrint(Node r) {
+
+        if (r == null) {
+            return;
+        }
+
+        PostOrderPrint(r.left);
+        PostOrderPrint(r.right);
+        System.out.println("" + r.data);
+    }
+
+    public void PrintLeafsR() {
+        PrintLeafsR(root);
+        System.out.println();
+    }
+
+    private void PrintLeafsR(Node r) {
+
+        if (r == null) {
+            return;
+        }
+
+        PrintLeafsR(r.left);
+        if (r.left == null) {
+            System.out.println("" + r.data);
+        }
+        PrintLeafsR(r.right);
+        if (r.right == null) {
+            System.out.println("" + r.data);
+        }
+
+    }
+
+    public int Height() {
+        return Height(root);
+    }
+
+    private int Height(Node r) {
+
+        if (r == null)  return 0;
+        int a = rHeight (r.left);
+        int b = rHeight (r.right);
+        return Math.max(a, b)+1;
+        
+    }
+    public void rDraw(){
+        JFrame f = new JFrame(){
+           public void paint(Graphics g){
+               rDraw (root, 20, 40, g);
+           }
+        }
+                f.setSize(600,400);
+                f.setVisible(true);
+                f.setDefaultCloseOperation(EXIT_ON_CLOSE);               
+                        
+    }
 }
