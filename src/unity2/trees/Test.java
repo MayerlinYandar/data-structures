@@ -18,21 +18,21 @@ public class Test {
             t.add(values[i]);
         }
 
-        int v = 30;
-        System.out.print("Path to" + v + ":");
-        t.printPath(v);
-
-        if (t.isLeaf(v)) {
-            System.out.println(" " + v + "is a leaf");
-        } else {
-            System.out.println(" " + v + "doesn't a leaf");
-        }
-
-        t.Printleafs();
-        t.Max();
-        t.Count();
-        t.Min();
-        
+//        int v = 30;
+//        System.out.print("Path to" + v + ":");
+//        t.printPath(v);
+//
+//        if (t.isLeaf(v)) {
+//            System.out.println(" " + v + "is a leaf");
+//        } else {
+//            System.out.println(" " + v + "doesn't a leaf");
+//        }
+//
+//        t.Printleafs();
+//        t.Max();
+//        t.Count();
+//        t.Min();
+       t.rDraw();
         
     }
 

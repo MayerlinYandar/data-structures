@@ -284,21 +284,56 @@ public class Tree {
 
     private int Height(Node r) {
 
-        if (r == null)  return 0;
-        int a = rHeight (r.left);
-        int b = rHeight (r.right);
-        return Math.max(a, b)+1;
-        
-    }
-    public void rDraw(){
-        JFrame f = new JFrame(){
-           public void paint(Graphics g){
-               rDraw (root, 20, 40, g);
-           }
+        if (r == null) {
+            return 0;
         }
-                f.setSize(600,400);
-                f.setVisible(true);
-                f.setDefaultCloseOperation(EXIT_ON_CLOSE);               
-                        
+        int a = Height(r.left);
+        int b = Height(r.right);
+        return Math.max(a, b) + 1;
+
     }
+
+    public void rDraw() {
+        JFrame f = new JFrame() {
+            public void paint(Graphics g) {
+                rDraw(root, 20, 40, g);
+            }
+        };
+        f.setSize(600, 400);
+        f.setVisible(true);
+        f.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+    }
+
+     class Info{
+       int xroot,xfinal;
+   }
+   
+   private Info rDraw(Node r,int x,int y,Graphics g){
+       
+       Info rootInfo= new Info();
+       rootInfo.xfinal=x;
+       
+       if (r==null) return rootInfo;
+       
+       Info leftInfo,rightInfo;
+       
+       leftInfo=rDraw(r.left,x,y+40,g);
+       
+       x=leftInfo.xfinal;
+       g.drawOval(x, y, 30, 30);
+       g.drawString(""+r.data,x+10,y+20);
+       rootInfo.xroot=x;
+       
+       rightInfo=rDraw(r.right,x+30,y+40,g);
+       rootInfo.xfinal=rightInfo.xfinal;
+       
+       if(r.left!=null){
+           g.drawLine(rootInfo.xroot+5, y+25,leftInfo.xroot+15, y+40);
+       }
+       if(r.right!=null){
+           g.drawLine(rootInfo.xroot+25, y+25, rightInfo.xroot+15, y+40);
+       }
+       return rootInfo;
+   }
 }
