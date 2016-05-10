@@ -32,7 +32,8 @@ public class Test {
 //        t.Max();
 //        t.Count();
 //        t.Min();
-       t.rDraw();
+//       t.rDraw();
+       t.isComplete();
         
     }
 
