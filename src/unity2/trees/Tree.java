@@ -17,9 +17,12 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
  */
 public class Tree {
 
+    int cont = 0;
+
     private Node root;
 
     public Tree() {
+
         root = null;
     }
 
@@ -382,10 +385,117 @@ public class Tree {
         invert(r.left);
         invert(r.right);
     }
-    public void prune (){
-        //podar el árbol
+
+    public void Prune() {
+        Prune(root);
     }
-    public void complete(){
-        //completar el árbol 
+
+    private void Prune(Node r) {
+
+        if (r == null) {
+            return;
+        }
+
+        Prune(r.left);
+        Prune(r.right);
+
+        if (r.left == null && r.right != null) {
+            r.right = null;
+
+        } else if (r.left != null && r.right == null) {
+            r.left = null;
+        }
+
+    }
+
+    public void Complete() {
+
+        Complete(root);
+
+    }
+
+    private void Complete(Node r) {
+
+        if (r == null) {
+            return;
+        }
+
+        Complete(r.left);
+        Complete(r.right);
+
+        if (r.left == null && r.right != null) {
+
+            this.add(r.data - 1);
+
+        } else if (r.left != null && r.right == null) {
+            this.add(r.data + 1);
+        }
+    }
+
+    public int CountOdds() {
+        return CountOdds(root);
+    }
+
+    private int CountOdds(Node r) {
+
+        if (r == null) {
+            return 0;
+        }
+        CountOdds(r.right);
+        CountOdds(r.left);
+        if (r.data % 2 == 1) {
+            cont++;
+        }
+        return cont;
+
+    }
+
+    public void reversePrint() {
+        reversePrint(root);
+    }
+
+    private void reversePrint(Node r) {
+
+        if (r == null) {
+            return;
+        }
+
+        reversePrint(r.right);
+        System.out.print("  " + r.data);
+        reversePrint(r.left);
+    }
+
+    public void PrintSonAlone() {
+        PrintSonAlone(root);
+    }
+
+    private void PrintSonAlone(Node r) {
+
+        if (r == null) {
+            return;
+        }
+
+        PrintSonAlone(r.left);
+        PrintSonAlone(r.right);
+
+        if (r.left == null && r.right != null) {
+            System.out.print(" " + r.right.data);
+        } else if (r.left != null && r.right == null) {
+            System.out.print(" " + r.left.data);
+        }
+    }
+    public void PrintMissings(){
+        PrintMissings(root);
+        
+    }
+    private void PrintMissings(Node r){
+        if(root==null)return;
+        if (r.left!=null){
+            for(int i=r.left.data +1 ; i< r.data ; i++){
+            System.out.println(+i);
+        }
+            //falta :(
+        }
+        
     }
 }

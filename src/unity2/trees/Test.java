@@ -13,7 +13,7 @@ public class Test {
 
     public static void main(String[] args) {
         Tree t = new Tree();
-        int values[] = {8, 4, 16, 2, 6, 12, 20, 1, 10, 14, 13, 15};
+        int values[] = {8, 4, 33, 2, 6, 12, 20, 1, 10, 14, 13, 15};
         for (int i = 0; i < values.length; i++) {
             t.add(values[i]);
         }
@@ -21,7 +21,7 @@ public class Test {
 //        int v = 30;
 //        System.out.print("Path to" + v + ":");
 //        t.printPath(v);
-//
+
 //        if (t.isLeaf(v)) {
 //            System.out.println(" " + v + "is a leaf");
 //        } else {
@@ -32,8 +32,12 @@ public class Test {
 //        t.Max();
 //        t.Count();
 //        t.Min();
-//       t.rDraw();
-       t.isComplete();
+       t.rDraw();
+//       t.isComplete();
+        System.out.println("COUNT ODDS");
+        System.out.println(""+t.CountOdds());
+        t.reversePrint();
+        
         
     }
 
