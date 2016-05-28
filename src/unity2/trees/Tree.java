@@ -484,18 +484,126 @@ public class Tree {
             System.out.print(" " + r.left.data);
         }
     }
-    public void PrintMissings(){
+
+    public void PrintMissings() {
         PrintMissings(root);
-        
+
     }
-    private void PrintMissings(Node r){
-        if(root==null)return;
-        if (r.left!=null){
-            for(int i=r.left.data +1 ; i< r.data ; i++){
-            System.out.println(+i);
+
+    private void PrintMissings(Node r) {
+        if (root == null) {
+            return;
         }
+        if (r.left != null) {
+            for (int i = r.left.data + 1; i < r.data; i++) {
+                System.out.println(+i);
+            }
             //falta :(
         }
-        
+
+    }
+
+    public void remove(int d) {
+        Node aux = root, p = null;
+        while (aux != null) {
+            p = aux;
+            if (d > aux.data) {
+                aux = aux.right;
+            } else if (d < aux.data) {
+                aux = aux.left;
+            } else {
+                if (aux == root) {
+                    if (aux.left == null) {
+                        root = aux.right;
+                    } else {
+                        root = aux.left;
+                        p = root;
+                    }
+                    while (p.right != null) {
+                        p = p.right;
+                    }
+                    p.right = aux.right;
+                } else {
+                    if (d < p.data) {
+                        if (aux.left == null) {
+                            p.left = aux.right;
+                        } else {
+                            p.left = aux.left;
+                            p = p.left;
+                            while (p.right != null) {
+                                p = p.right;
+                            }
+                            p.right = aux.right;
+                        }
+                    }
+
+                }
+            }
+            return;
+        }
+    }
+
+    public int equilibriumFactor() {
+        return equilibriumFactor(root);
+    }
+
+    private int equilibriumFactor(Node r) {
+        return Height(r.left) - Height(r.right);
+    }
+
+    private void LeftRotation(Node r, Node handle) {
+        if (r == root) {
+            root = r.right;
+            r.right = root.left;
+            root.left = r;
+        } else if (r == handle.right) {
+            handle.right = r.right;
+            r.right = handle.right.left;
+            handle.right.left = r;
+        } else {
+            handle.left = r.right;
+            r.right = handle.left.left;
+            handle.left.left = r;
+        }
+    }
+
+    private void RightRotation(Node r, Node handle) {
+        if (r == root) {
+            root = r.left;
+            r.left = root.right;
+            root.right = r;
+        } else if (r == handle.left) {
+            handle.left = r.left;
+            r.left = handle.left.right;
+            handle.left.right = r;
+        } else {
+            handle.right = r.left;
+            r.left = handle.right.right;
+            handle.right.right = r;
+        }
+    }
+
+    public void balance() {
+        balance(root, null);
+    }
+
+    private void balance(Node r, Node handle) {
+        if (r == null) {
+            return;
+        }
+        balance(r.left, r);
+        balance(r.right, r);
+        int ef = equilibriumFactor(r);
+        if (ef < -1) {
+            if (equilibriumFactor(r.right) > 0) {
+                RightRotation(r.right, r);
+            }
+            LeftRotation(r, handle);
+        } else if (ef > 1) {
+            if (equilibriumFactor(r.left) < 0) {
+                LeftRotation(r.left, r);
+            }
+            RightRotation(r, handle);
+        }
     }
 }
